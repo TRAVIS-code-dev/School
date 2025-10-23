@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Sign-up — Our School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="site-title" href="index.html"><span class="logo">S</span><h1>Our School</h1></a>
+      <nav class="primary">
+        <a href="index.html">Home</a>
+        <a href="login.html">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h2>Student Sign-up</h2>
+        <p class="muted">Create an account to access the school site. This demo stores non-sensitive information locally for preview purposes only.</p>
+        <form id="signup-form" novalidate>
+          <div>
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" required minlength="2" />
+          </div>
+
+          <div>
+            <label for="email">School email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="studentId">Student ID</label>
+              <input id="studentId" name="studentId" type="text" required pattern="[A-Za-z0-9\-]+" />
+            </div>
+            <div style="width:140px">
+              <label for="grade">Grade</label>
+              <select id="grade" name="grade" required>
+                <option value="">Select</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required minlength="8" />
+          </div>
+
+          <div>
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" required minlength="8" />
+          </div>
+
+          <div>
+            <label><input id="agree" name="agree" type="checkbox" required /> I agree to the school's acceptable use policy.</label>
+          </div>
+
+          <div class="row" style="align-items:center;justify-content:space-between">
+            <div class="error" id="error" aria-live="polite"></div>
+            <div style="display:flex;gap:8px">
+              <a class="btn btn-ghost" href="index.html">Cancel</a>
+              <button class="btn btn-primary" type="submit">Sign up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>Why sign up?</h3>
+          <p class="muted">Signing up helps us personalise content, manage student privileges, and keep the school community secure.</p>
+          <div style="margin-top:12px"><a class="btn" href="login.html">Already have an account?</a></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year">2025</span> Our School</div>
+      <div class="muted">Built for demo</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const form = document.getElementById('signup-form');
+      const errorEl = document.getElementById('error');
+
+      function showError(msg){ errorEl.textContent = msg }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        errorEl.textContent = '';
+        const fullName = form.fullName.value.trim();
+        const email = form.email.value.trim().toLowerCase();
+        const studentId = form.studentId.value.trim();
+        const grade = form.grade.value;
+        const pw = form.password.value;
+        const pw2 = form.confirmPassword.value;
+        const agree = form.agree.checked;
+
+        if(!fullName || !email || !studentId || !grade){ showError('Please complete all required fields.'); return }
+        if(pw !== pw2){ showError('Passwords do not match.'); return }
+        if(!agree){ showError('You must agree to the acceptable use policy.'); return }
+
+        // Demo storage: store user entry without storing cleartext password in production.
+        const users = JSON.parse(localStorage.getItem('school_users')||'[]');
+        if(users.find(u=>u.email===email)){ showError('An account with this email already exists.'); return }
+        users.push({ fullName, email, studentId, grade, createdAt: new Date().toISOString(), password: pw });
+        localStorage.setItem('school_users', JSON.stringify(users));
+
+        // Indicate success and redirect to login
+        errorEl.style.color = 'var(--success)';
+        errorEl.textContent = 'Sign-up successful — redirecting to login...';
+        setTimeout(()=> location.href = 'login.html', 1000);
+      });
+    })();
+  </script>
+</body>
+</html>

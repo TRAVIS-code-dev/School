@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Log in — Our School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="site-title" href="index.html"><span class="logo">S</span><h1>Our School</h1></a>
+      <nav class="primary">
+        <a href="index.html">Home</a>
+        <a href="signup.html">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h2>Log in</h2>
+        <p class="muted">Enter your school email and password to access the site (demo).</p>
+        <form id="login-form" novalidate>
+          <div>
+            <label for="email">School email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required />
+          </div>
+          <div class="row" style="align-items:center;justify-content:space-between">
+            <div class="error" id="error" aria-live="polite"></div>
+            <div style="display:flex;gap:8px">
+              <a class="btn btn-ghost" href="index.html">Cancel</a>
+              <button class="btn btn-primary" type="submit">Log in</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>Need an account?</h3>
+          <p class="muted">Create a student account to access personalised content.</p>
+          <div style="margin-top:12px"><a class="btn" href="signup.html">Sign up</a></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year">2025</span> Our School</div>
+      <div class="muted">Built for demo</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const form = document.getElementById('login-form');
+      const errorEl = document.getElementById('error');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        errorEl.textContent = '';
+        const email = form.email.value.trim().toLowerCase();
+        const pw = form.password.value;
+        if(!email || !pw){ errorEl.textContent = 'Please enter your email and password.'; return }
+
+        const users = JSON.parse(localStorage.getItem('school_users')||'[]');
+        const user = users.find(u=>u.email===email && u.password===pw);
+        if(!user){ errorEl.textContent = 'Invalid email or password.'; return }
+
+        // Mark logged in user (demo) and redirect
+        try{ localStorage.setItem('school_current_user', JSON.stringify({ email:user.email, name:user.fullName })) }catch(e){}
+        errorEl.style.color = 'var(--success)';
+        errorEl.textContent = 'Login successful — redirecting to the site...';
+        setTimeout(()=> location.href = 'index.html', 800);
+      });
+    })();
+  </script>
+</body>
+</html>

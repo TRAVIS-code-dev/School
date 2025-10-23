@@ -1,45 +1,185 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+/* Modern, accessible, professional UI/UX styles for the School site */
+
+/* Design tokens */
+:root{
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#0f7cdb;
+    --accent-2:#e8491d;
+    --brand-dark:#263238;
+    --success:#0b8043;
+    --danger:#b00020;
+    --shadow: 0 6px 18px rgba(13,24,35,0.08);
+    --radius:12px;
+    --container:1100px;
+    --glass: rgba(255,255,255,0.6);
+    --focus: 3px solid rgba(15,124,219,0.18);
 }
 
-header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
+/* Reset / base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(15,124,219,0.04), transparent 8%),
+                            linear-gradient(180deg, var(--bg), #ffffff 60%);
+    color:var(--brand-dark);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+    font-size:16px;
 }
 
-nav {
-    margin: 20px 0;
+/* Layout container */
+.container{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:24px;
 }
 
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 15px;
+/* Header */
+header{
+    background:linear-gradient(180deg,var(--brand-dark),#1f2a2f);
+    color:#fff;
+    padding:18px 0;
+    box-shadow: 0 4px 16px rgba(15,24,35,0.08);
+    position:sticky;
+    top:0;
+    z-index:40;
+}
+.header-inner{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    justify-content:space-between;
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 24px;
+}
+.site-title{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    text-decoration:none;
+    color:#fff;
+}
+.site-title .logo{
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    background:linear-gradient(135deg,var(--accent),#2aa7ff);
+    display:inline-grid;
+    place-items:center;
+    font-weight:700;
+    color:#fff;
+    box-shadow:0 6px 20px rgba(15,124,219,0.18);
+}
+.site-title h1{
+    font-size:1.1rem;
+    margin:0;
+    letter-spacing:0.2px;
 }
 
-nav a:hover {
-    background: #e8491d;
+/* Navigation */
+nav.primary{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+nav.primary a{
+    color:#e6f1ff;
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:600;
+    transition:all .16s ease;
+    font-size:0.95rem;
+    opacity:0.98;
+}
+nav.primary a:hover,
+nav.primary a:focus{
+    background:rgba(255,255,255,0.06);
+    transform:translateY(-1px);
+    outline:none;
+}
+.signup-btn{
+    background:linear-gradient(90deg,var(--accent),#2aa7ff);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:10px;
+    box-shadow:0 8px 30px rgba(15,124,219,0.14);
+    text-decoration:none;
+    font-weight:700;
 }
 
-main {
-    padding: 20px;
-    background: #ffffff;
-    margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Hero */
+.hero{
+    margin:28px auto;
+    max-width:var(--container);
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:28px;
+    align-items:center;
+}
+.hero-card{
+    background:var(--card);
+    padding:34px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+.hero h2{font-size:1.6rem;margin:0 0 12px}
+.hero p{color:var(--muted);margin:0 0 18px}
+.cta-row{display:flex;gap:12px}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;border:none;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(15,124,219,0.12)}
+.btn-ghost{background:transparent;border:1px solid rgba(15,124,219,0.12);color:var(--brand-dark)}
+
+/* Cards grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(13,24,35,0.06)}
+.card h3{margin:0 0 8px}
+.card p{margin:0;color:var(--muted)}
+
+/* Prefects list */
+.prefect-list{list-style:none;padding:0;margin:14px 0 0}
+.prefect-list li{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(15,124,219,0.02), transparent);margin-bottom:10px}
+.prefect-list strong{display:block}
+
+/* Form styles (signup) */
+form{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(13,24,35,0.05)}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type="text"],input[type="email"],input[type="password"],select,textarea{
+    width:100%;padding:10px 12px;border-radius:10px;border:1px solid #e6eef8;background:#fbfdff;color:var(--brand-dark);font-size:0.95rem;transition:box-shadow .12s ease,transform .08s ease}
+input:focus,select:focus,textarea:focus{box-shadow:var(--focus);outline:none;transform:translateY(-1px)}
+.row{display:flex;gap:12px}
+.row .col{flex:1}
+.error{color:var(--danger)}
+.success{color:var(--success)}
+
+/* Footer */
+footer{background:#0e1a20;color:#dfeffb;padding:28px 0;margin-top:36px}
+.footer-inner{max-width:var(--container);margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+
+/* Responsive */
+@media (max-width:1000px){
+    .hero{grid-template-columns:1fr 320px}
+    .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+    .header-inner{padding:0 16px}
+    .hero{grid-template-columns:1fr;gap:16px}
+    .grid{grid-template-columns:1fr}
+    nav.primary{display:none}
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #35424a;
-    color: #ffffff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+/* Small helpers */
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+/* Accessibility helpers */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;border-radius:6px}
+
+/* End of stylesheet */
