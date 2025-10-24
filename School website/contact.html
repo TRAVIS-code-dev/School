@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Osino Presby Senior High Technical School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="site-title" href="index.html"><span class="logo">O</span><h1>Osino Presby Senior High Technical School</h1></a>
+      <nav class="primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="contact.html">Contact</a>
+        <a class="signup-btn" href="signup.html">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <h2>Contact Us</h2>
+      <p class="muted">We'd love to hear from you. Use the contact details below or send us a message using the form.</p>
+    </section>
+
+    <section class="card">
+      <h3>School Office</h3>
+      <p class="muted">Address: P. O. Box 123, Osino, Eastern Region, Ghana<br>
+      Phone: +233 20 000 0000<br>
+      Email: info@osinopresby.edu.gh</p>
+    </section>
+
+    <section class="card">
+      <h3>Contact form</h3>
+      <form id="contact-form" novalidate>
+        <div>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+          <div class="error" id="contact-error" aria-live="polite"></div>
+          <div style="margin-left:auto"><button class="btn btn-primary" type="submit">Send message</button></div>
+        </div>
+      </form>
+      <p class="muted" style="margin-top:8px">Note: This is a demo contact form and does not send messages. Implement server-side handling to receive messages.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year">2025</span> Osino Presby Senior High Technical School</div>
+      <div class="muted">Built for demo</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const form = document.getElementById('contact-form');
+      const err = document.getElementById('contact-error');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        err.textContent = '';
+        if(!form.name.value.trim()||!form.email.value.trim()||!form.message.value.trim()){ err.textContent = 'Please complete all fields.'; return }
+        err.style.color = 'var(--success)';
+        err.textContent = 'Message recorded (demo) — thank you.';
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

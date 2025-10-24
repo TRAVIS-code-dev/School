@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Student Sign-up — Our School</title>
+  <title>Student Sign-up — Osino Presby Senior High Technical School</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <a class="site-title" href="index.html"><span class="logo">S</span><h1>Our School</h1></a>
+  <a class="site-title" href="index.html"><span class="logo">S</span><h1>Osino Presby Senior High Technical School</h1></a>
       <nav class="primary">
         <a href="index.html">Home</a>
         <a href="login.html">Log in</a>
@@ -88,7 +88,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div>&copy; <span id="year">2025</span> Our School</div>
+  <div>&copy; <span id="year">2025</span> Osino Presby Senior High Technical School</div>
       <div class="muted">Built for demo</div>
     </div>
   </footer>
@@ -97,10 +97,52 @@
     (function(){
       const form = document.getElementById('signup-form');
       const errorEl = document.getElementById('error');
+      const pwInput = document.getElementById('password');
+      const pwConfirm = document.getElementById('confirmPassword');
 
-      function showError(msg){ errorEl.textContent = msg }
+      // Password strength UI
+      const strengthWrap = document.createElement('div');
+      strengthWrap.className = 'pw-strength-wrap';
+      strengthWrap.innerHTML = '<div id="pw-strength" class="pw-strength"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div id="pw-strength-text" class="pw-strength-text muted">Choose a strong password</div>';
+      pwInput.parentNode.insertBefore(strengthWrap, pwInput.nextSibling);
 
-      form.addEventListener('submit', function(e){
+      function showError(msg){ errorEl.style.color = ''; errorEl.textContent = msg }
+
+      function scorePassword(pw){
+        let score = 0;
+        if(!pw) return 0;
+        if(pw.length >= 8) score++;
+        if(pw.length >= 12) score++;
+        if(/[A-Z]/.test(pw)) score++;
+        if(/[0-9]/.test(pw)) score++;
+        if(/[^A-Za-z0-9]/.test(pw)) score++;
+        // Normalize to 0..4
+        return Math.min(4, score);
+      }
+
+      function updateStrength(){
+        const val = pwInput.value || '';
+        const s = scorePassword(val);
+        const bars = document.querySelectorAll('#pw-strength .bar');
+        bars.forEach((b,i)=>{ b.style.opacity = (i<=s-1)?'1':'0.22'; });
+        const textEl = document.getElementById('pw-strength-text');
+        if(!val) return textEl.textContent = 'Choose a strong password';
+        if(s<=1) textEl.textContent = 'Very weak';
+        else if(s===2) textEl.textContent = 'Weak';
+        else if(s===3) textEl.textContent = 'Good';
+        else textEl.textContent = 'Strong';
+      }
+
+      pwInput.addEventListener('input', updateStrength);
+
+      async function sha256Hex(message){
+        const enc = new TextEncoder();
+        const data = enc.encode(message);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+      }
+
+      form.addEventListener('submit', async function(e){
         e.preventDefault();
         errorEl.textContent = '';
         const fullName = form.fullName.value.trim();
@@ -115,10 +157,15 @@
         if(pw !== pw2){ showError('Passwords do not match.'); return }
         if(!agree){ showError('You must agree to the acceptable use policy.'); return }
 
-        // Demo storage: store user entry without storing cleartext password in production.
+        // minimal strength enforcement
+        if(scorePassword(pw) < 2){ showError('Please choose a stronger password (longer and include mixed characters).'); return }
+
+        // Hash password before storing (client-side demo). In production, do server-side hashing with salt.
+        const hashed = await sha256Hex(pw);
+
         const users = JSON.parse(localStorage.getItem('school_users')||'[]');
         if(users.find(u=>u.email===email)){ showError('An account with this email already exists.'); return }
-        users.push({ fullName, email, studentId, grade, createdAt: new Date().toISOString(), password: pw });
+        users.push({ fullName, email, studentId, grade, createdAt: new Date().toISOString(), passwordHash: hashed });
         localStorage.setItem('school_users', JSON.stringify(users));
 
         // Indicate success and redirect to login

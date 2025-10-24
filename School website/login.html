@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Log in — Our School</title>
+  <title>Log in — Osino Presby Senior High Technical School</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <a class="site-title" href="index.html"><span class="logo">S</span><h1>Our School</h1></a>
+  <a class="site-title" href="index.html"><span class="logo">S</span><h1>Osino Presby Senior High Technical School</h1></a>
       <nav class="primary">
         <a href="index.html">Home</a>
         <a href="signup.html">Sign up</a>
@@ -53,7 +53,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div>&copy; <span id="year">2025</span> Our School</div>
+  <div>&copy; <span id="year">2025</span> Osino Presby Senior High Technical School</div>
       <div class="muted">Built for demo</div>
     </div>
   </footer>
@@ -63,7 +63,14 @@
       const form = document.getElementById('login-form');
       const errorEl = document.getElementById('error');
 
-      form.addEventListener('submit', function(e){
+      async function sha256Hex(message){
+        const enc = new TextEncoder();
+        const data = enc.encode(message);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+      }
+
+      form.addEventListener('submit', async function(e){
         e.preventDefault();
         errorEl.textContent = '';
         const email = form.email.value.trim().toLowerCase();
@@ -71,7 +78,8 @@
         if(!email || !pw){ errorEl.textContent = 'Please enter your email and password.'; return }
 
         const users = JSON.parse(localStorage.getItem('school_users')||'[]');
-        const user = users.find(u=>u.email===email && u.password===pw);
+        const hashed = await sha256Hex(pw);
+        const user = users.find(u=>u.email===email && u.passwordHash===hashed);
         if(!user){ errorEl.textContent = 'Invalid email or password.'; return }
 
         // Mark logged in user (demo) and redirect

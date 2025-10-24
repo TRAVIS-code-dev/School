@@ -9,27 +9,72 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Our School</h1>
-         <a id="signup-link" class="signup-btn" href="signup.html" aria-label="Student sign up">Student Sign‑up (required)</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-inner">
+            <a class="site-title" href="index.html"><span class="logo">S</span><h1>Osino Presby Senior High Technical School</h1></a>
+            <nav class="primary">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+                <a class="signup-btn" href="signup.html">Sign up</a>
+            </nav>
+        </div>
     </header>
-    <main>
+
+    <main class="container">
+        <!-- Hero banner -->
+        <section class="hero-banner">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <h2>Inspiring learners, building leaders</h2>
+                    <p class="muted">A welcoming learning community where every student can thrive. Explore our programs, events, and student resources.</p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="signup.html">Get a student account</a>
+                        <a class="btn btn-ghost" href="login.html">Log in</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="welcome-card" id="welcome-card">
+                        <!-- Populated by js/main.js when a user is logged in -->
+                        <div class="center muted">Not signed in</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features grid -->
+        <section class="grid features-grid" aria-label="Site features">
+            <div class="feature-card card">
+                <h3>Programs</h3>
+                <p class="muted">Academic, arts, and sports programs designed to support every interest.</p>
+            </div>
+            <div class="feature-card card">
+                <h3>Calendar</h3>
+                <p class="muted">Important dates, exams, and events — stay up to date with the school calendar.</p>
+            </div>
+            <div class="feature-card card">
+                <h3>Resources</h3>
+                <p class="muted">Student resources, study guides, and learning tools curated by our faculty.</p>
+            </div>
+        </section>
+
         <section>
             <h2>Our Mission</h2>
             <p>To provide quality education and foster a love for learning in our students.</p>
         </section>
+
         <section>
-            <h2>Upcoming Events</h2>
-            <p>Check our calendar for upcoming events and activities.</p>
+            <h2>Announcements</h2>
+            <div class="accordion">
+                <button class="acc-toggle">Open day — Saturday, Nov 2</button>
+                <div class="acc-panel">Join us for our school open day. Tours start at 10:00am and teachers will be available for Q&A.</div>
+
+                <button class="acc-toggle">Scholarship applications</button>
+                <div class="acc-panel">Applications for the academic scholarships are open. Deadline: Dec 1.</div>
+            </div>
         </section>
-         <!-- Added: Student Prefects section -->
+
+        <!-- Student Prefects -->
         <section>
             <h2>Student Prefects</h2>
             <p>Our prefect team supports the school's values by promoting leadership, service, and a positive learning environment. They act as role models and help build a respectful, inclusive community.</p>
@@ -54,7 +99,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Our School. All rights reserved.</p>
+    <p>&copy; 2023 Osino Presby Senior High Technical School. All rights reserved.</p>
     </footer>
     <script src="js/main.js"></script>
 </body>

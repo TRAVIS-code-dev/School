@@ -129,6 +129,26 @@ nav.primary a:focus{
     border-radius:var(--radius);
     box-shadow:var(--shadow);
 }
+
+/* Hero banner for index */
+.hero-banner{background:linear-gradient(180deg, rgba(15,124,219,0.04), transparent);padding:28px 0;margin-bottom:18px}
+.hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between}
+.hero-copy{flex:1;max-width:720px}
+.hero-copy h2{font-size:2rem;margin:0 0 8px}
+.hero-visual{width:320px}
+.welcome-card{background:linear-gradient(180deg, var(--card), var(--glass));padding:16px;border-radius:12px;box-shadow:var(--shadow);min-height:110px;display:flex;flex-direction:column;justify-content:center}
+.welcome-card .avatar{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2aa7ff);display:inline-grid;place-items:center;color:white;font-weight:700;margin-right:12px}
+
+/* Features grid */
+.features-grid{grid-template-columns:repeat(3,1fr);margin-top:8px}
+.feature-card{padding:20px;text-align:left}
+
+/* Accordion */
+.accordion{margin-top:8px}
+.accordion .acc-toggle{width:100%;text-align:left;padding:12px;border-radius:8px;border:none;background:transparent;font-weight:700;cursor:pointer}
+.accordion .acc-panel{padding:12px 14px;background:var(--card);border-radius:10px;margin-bottom:10px;display:none;color:var(--muted)}
+.accordion .acc-toggle:focus{outline:none}
+
 .hero h2{font-size:1.6rem;margin:0 0 12px}
 .hero p{color:var(--muted);margin:0 0 18px}
 .cta-row{display:flex;gap:12px}
@@ -157,6 +177,13 @@ input:focus,select:focus,textarea:focus{box-shadow:var(--focus);outline:none;tra
 .row .col{flex:1}
 .error{color:var(--danger)}
 .success{color:var(--success)}
+
+/* Password strength meter */
+.pw-strength-wrap{margin-top:8px;margin-bottom:12px}
+.pw-strength{display:flex;gap:6px;align-items:center}
+.pw-strength .bar{width:26%;height:8px;border-radius:6px;background:linear-gradient(90deg,var(--accent),#2aa7ff);opacity:0.22;transition:opacity .12s ease,transform .08s ease}
+.pw-strength-text{font-size:0.9rem;margin-top:6px;color:var(--muted)}
+
 
 /* Footer */
 footer{background:#0e1a20;color:#dfeffb;padding:28px 0;margin-top:36px}
