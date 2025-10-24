@@ -87,13 +87,19 @@
       }
     }
 
-    // Setup accordions
+    // Setup accordions with accessibility (toggle aria-expanded)
     document.querySelectorAll('.accordion .acc-toggle').forEach(btn=>{
+      btn.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') || 'false');
       btn.addEventListener('click', function(){
         const panel = this.nextElementSibling;
         if(!panel) return;
-        const open = panel.style.display === 'block';
-        panel.style.display = open ? 'none' : 'block';
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        panel.style.display = expanded ? 'none' : 'block';
+      });
+      // allow keyboard enter/space to toggle
+      btn.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); this.click(); }
       });
     });
   });
