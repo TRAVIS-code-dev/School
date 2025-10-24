@@ -169,8 +169,8 @@ nav.primary a:focus{
 .hero p{color:var(--muted);margin:0 0 18px}
 .cta-row{display:flex;gap:12px}
 .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;border:none;cursor:pointer}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(123,27,27,0.12)}
-.btn-ghost{background:transparent;border:1px solid rgba(123,27,27,0.12);color:var(--brand-dark)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(15,124,219,0.12)}
+.btn-ghost{background:transparent;border:1px solid rgba(15,124,219,0.12);color:var(--brand-dark)}
 
 /* Cards grid */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
@@ -180,7 +180,7 @@ nav.primary a:focus{
 
 /* Prefects list */
 .prefect-list{list-style:none;padding:0;margin:14px 0 0}
-.prefect-list li{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(123,27,27,0.02), transparent);margin-bottom:10px}
+.prefect-list li{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(15,124,219,0.02), transparent);margin-bottom:10px}
 .prefect-list strong{display:block}
 
 /* Prefect card grid and card */
