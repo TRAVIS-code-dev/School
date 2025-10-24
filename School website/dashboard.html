@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Dashboard — Osino Presby Senior High Technical School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="site-title" href="index.html"><span class="logo">OP</span><h1>Osino Presby Senior High Technical School</h1></a>
+      <nav class="primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="signup-btn" href="signup.html">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <h2>Your Dashboard</h2>
+      <p class="muted">Personalised student area (demo). Sign in to view your profile, announcements, and quick links.</p>
+    </section>
+
+    <section class="hero-card" id="profile-card">
+      <!-- Populated by js/dashboard.js -->
+      <div class="center muted">Loading profile…</div>
+    </section>
+
+    <section class="card">
+      <h3>Announcements</h3>
+      <div id="announcements" class="muted">Loading announcements…</div>
+
+      <form id="announce-form" style="margin-top:12px">
+        <label for="announce-text">Add announcement (demo)</label>
+        <input id="announce-text" type="text" placeholder="Announcement text" required />
+        <div style="margin-top:8px;display:flex;justify-content:flex-end"><button class="btn btn-primary" type="submit">Add</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h3>Quick links</h3>
+      <div class="grid">
+        <div class="card"><h3>Courses</h3><p class="muted">View course descriptions and materials.</p></div>
+        <div class="card"><h3>Timetable</h3><p class="muted">Check your class schedule.</p></div>
+        <div class="card"><h3>Labs</h3><p class="muted">Book a lab session or report an issue.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year">2025</span> Osino Presby Senior High Technical School</div>
+      <div class="muted">Student dashboard (demo)</div>
+    </div>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
