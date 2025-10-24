@@ -125,7 +125,7 @@ nav.primary a:focus{
     color:#fff;
     padding:8px 14px;
     border-radius:10px;
-    box-shadow:0 8px 30px rgba(123,27,27,0.12);
+    box-shadow:0 8px 30px rgba(15,124,219,0.14);
     text-decoration:none;
     font-weight:700;
 }
@@ -147,7 +147,7 @@ nav.primary a:focus{
 }
 
 /* Hero banner for index */
-.hero-banner{background:linear-gradient(180deg, rgba(123,27,27,0.03), transparent);padding:28px 0;margin-bottom:18px}
+.hero-banner{background:linear-gradient(180deg, rgba(15,124,219,0.04), transparent);padding:28px 0;margin-bottom:18px}
 .hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between}
 .hero-copy{flex:1;max-width:720px}
 .hero-copy h2{font-size:2rem;margin:0 0 8px}
