@@ -2,19 +2,20 @@
 
 /* Design tokens */
 :root{
-    --bg:#f6f8fb;
+    /* Presbyterian-themed palette: warm cream background, maroon + gold accents */
+    --bg:#fff8f2;
     --card:#ffffff;
     --muted:#6b7280;
-    --accent:#0f7cdb;
-    --accent-2:#e8491d;
-    --brand-dark:#263238;
+    --accent:#7b1b1b; /* maroon */
+    --accent-2:#d4af37; /* gold */
+    --brand-dark:#2b1a18;
     --success:#0b8043;
     --danger:#b00020;
     --shadow: 0 6px 18px rgba(13,24,35,0.08);
     --radius:12px;
     --container:1100px;
     --glass: rgba(255,255,255,0.6);
-    --focus: 3px solid rgba(15,124,219,0.18);
+    --focus: 3px solid rgba(123,27,27,0.12);
 }
 
 /* Reset / base */
@@ -23,7 +24,7 @@ html,body{height:100%}
 body{
     margin:0;
     font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(15,124,219,0.04), transparent 8%),
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(123,27,27,0.03), transparent 8%),
                             linear-gradient(180deg, var(--bg), #ffffff 60%);
     color:var(--brand-dark);
     -webkit-font-smoothing:antialiased;
@@ -69,12 +70,12 @@ header{
     width:56px;
     height:56px;
     border-radius:10px;
-    background:linear-gradient(135deg,var(--accent),#2aa7ff);
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
     display:inline-grid;
     place-items:center;
     font-weight:800;
     color:#fff;
-    box-shadow:0 8px 28px rgba(15,124,219,0.18);
+    box-shadow:0 8px 28px rgba(123,27,27,0.18);
     font-size:1rem;
 }
 .site-title h1{
@@ -121,11 +122,11 @@ nav.primary a:focus{
     outline:none;
 }
 .signup-btn{
-    background:linear-gradient(90deg,var(--accent),#2aa7ff);
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
     color:#fff;
     padding:8px 14px;
     border-radius:10px;
-    box-shadow:0 8px 30px rgba(15,124,219,0.14);
+    box-shadow:0 8px 30px rgba(123,27,27,0.12);
     text-decoration:none;
     font-weight:700;
 }
@@ -147,13 +148,13 @@ nav.primary a:focus{
 }
 
 /* Hero banner for index */
-.hero-banner{background:linear-gradient(180deg, rgba(15,124,219,0.04), transparent);padding:28px 0;margin-bottom:18px}
+.hero-banner{background:linear-gradient(180deg, rgba(123,27,27,0.03), transparent);padding:28px 0;margin-bottom:18px}
 .hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between}
 .hero-copy{flex:1;max-width:720px}
 .hero-copy h2{font-size:2rem;margin:0 0 8px}
 .hero-visual{width:320px}
 .welcome-card{background:linear-gradient(180deg, var(--card), var(--glass));padding:16px;border-radius:12px;box-shadow:var(--shadow);min-height:110px;display:flex;flex-direction:column;justify-content:center}
-.welcome-card .avatar{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#2aa7ff);display:inline-grid;place-items:center;color:white;font-weight:700;margin-right:12px}
+.welcome-card .avatar{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-grid;place-items:center;color:white;font-weight:700;margin-right:12px}
 
 /* Features grid */
 .features-grid{grid-template-columns:repeat(3,1fr);margin-top:8px}
@@ -169,8 +170,8 @@ nav.primary a:focus{
 .hero p{color:var(--muted);margin:0 0 18px}
 .cta-row{display:flex;gap:12px}
 .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;border:none;cursor:pointer}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(15,124,219,0.12)}
-.btn-ghost{background:transparent;border:1px solid rgba(15,124,219,0.12);color:var(--brand-dark)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(123,27,27,0.12)}
+.btn-ghost{background:transparent;border:1px solid rgba(123,27,27,0.12);color:var(--brand-dark)}
 
 /* Cards grid */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
@@ -180,7 +181,7 @@ nav.primary a:focus{
 
 /* Prefects list */
 .prefect-list{list-style:none;padding:0;margin:14px 0 0}
-.prefect-list li{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(15,124,219,0.02), transparent);margin-bottom:10px}
+.prefect-list li{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(123,27,27,0.02), transparent);margin-bottom:10px}
 .prefect-list strong{display:block}
 
 /* Prefect card grid and card */
@@ -207,7 +208,7 @@ input:focus,select:focus,textarea:focus{box-shadow:var(--focus);outline:none;tra
 /* Password strength meter */
 .pw-strength-wrap{margin-top:8px;margin-bottom:12px}
 .pw-strength{display:flex;gap:6px;align-items:center}
-.pw-strength .bar{width:26%;height:8px;border-radius:6px;background:linear-gradient(90deg,var(--accent),#2aa7ff);opacity:0.22;transition:opacity .12s ease,transform .08s ease}
+.pw-strength .bar{width:26%;height:8px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:0.22;transition:opacity .12s ease,transform .08s ease}
 .pw-strength-text{font-size:0.9rem;margin-top:6px;color:var(--muted)}
 
 
