@@ -66,20 +66,23 @@ header{
     color:#fff;
 }
 .site-title .logo{
-    width:48px;
-    height:48px;
-    border-radius:8px;
+    width:56px;
+    height:56px;
+    border-radius:10px;
     background:linear-gradient(135deg,var(--accent),#2aa7ff);
     display:inline-grid;
     place-items:center;
-    font-weight:700;
+    font-weight:800;
     color:#fff;
-    box-shadow:0 6px 20px rgba(15,124,219,0.18);
+    box-shadow:0 8px 28px rgba(15,124,219,0.18);
+    font-size:1rem;
 }
 .site-title h1{
-    font-size:1.1rem;
+    font-size:0.95rem;
     margin:0;
     letter-spacing:0.2px;
+    line-height:1.05;
+    max-width:520px;
 }
 
 /* Navigation */
@@ -97,6 +100,19 @@ nav.primary a{
     transition:all .16s ease;
     font-size:0.95rem;
     opacity:0.98;
+}
+
+/* Better focus styles for keyboard users */
+a:focus,button:focus,input:focus,select:focus,textarea:focus{
+    outline: none;
+    box-shadow: var(--focus);
+}
+
+/* Improve header responsiveness */
+@media (max-width:720px){
+    .site-title h1{font-size:0.95rem}
+    .site-title .logo{width:48px;height:48px}
+    nav.primary{display:none}
 }
 nav.primary a:hover,
 nav.primary a:focus{
