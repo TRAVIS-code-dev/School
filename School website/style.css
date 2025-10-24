@@ -183,6 +183,16 @@ nav.primary a:focus{
 .prefect-list li{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(15,124,219,0.02), transparent);margin-bottom:10px}
 .prefect-list strong{display:block}
 
+/* Prefect card grid and card */
+.prefect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+.prefect-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
+.prefect-card img{width:84px;height:84px;border-radius:8px;object-fit:cover;flex-shrink:0;border:1px solid rgba(13,24,35,0.04)}
+.prefect-card .pc-meta{flex:1}
+.prefect-card .pc-meta h4{margin:0;font-size:1.05rem}
+.prefect-card .pc-meta p{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+.prefect-card .pc-meta .role{font-weight:700;margin-top:6px}
+
+
 /* Form styles (signup) */
 form{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(13,24,35,0.05)}
 label{display:block;font-weight:600;margin-bottom:6px}
