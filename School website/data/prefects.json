@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Aisha Kumar",
+    "role": "Head Prefect",
+    "bio": "Leads the prefect team, represents students in meetings, and organises community projects.",
+    "image": "images/prefects/aisha.jpg",
+    "alt": "Aisha Kumar — Head Prefect"
+  },
+  {
+    "name": "Daniel Osei",
+    "role": "Deputy Head Prefect",
+    "bio": "Supports the head prefect and oversees peer mentoring and student welfare initiatives.",
+    "image": "images/prefects/daniel.jpg",
+    "alt": "Daniel Osei — Deputy Head Prefect"
+  },
+  {
+    "name": "James Smith",
+    "role": "Academic Prefect",
+    "bio": "Promotes academic excellence, coordinates study groups, and helps with tutoring programmes.",
+    "image": "images/prefects/james.jpg",
+    "alt": "James Smith — Academic Prefect"
+  },
+  {
+    "name": "Maria López",
+    "role": "Community Prefect",
+    "bio": "Organises outreach and volunteering activities and champions service learning.",
+    "image": "images/prefects/maria.jpg",
+    "alt": "Maria López — Community Prefect"
+  }
+]

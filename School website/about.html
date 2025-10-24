@@ -84,8 +84,15 @@
         </div>
       </div>
 
-      <p class="muted" style="margin-top:10px">To add a prefect photo: place an image at <code>images/prefects/<em>name.jpg</em></code> and update the <code>src</code> value. Image sizes ~200x200px work well.</p>
+        <div id="prefect-container">
+          <!-- Prefect cards will be loaded from data/prefects.json by js/prefects.js -->
+          <div class="center muted">Loading prefects…</div>
+        </div>
+
+        <p class="muted" style="margin-top:10px">To manage prefects: edit <code>data/prefects.json</code> and place images in <code>images/prefects/</code>. Recommended image size: ~200x200px.</p>
     </section>
+
+    <script src="js/prefects.js"></script>
 
   </main>
 
