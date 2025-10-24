@@ -2,20 +2,19 @@
 
 /* Design tokens */
 :root{
-    /* Presbyterian-themed palette: warm cream background, maroon + gold accents */
-    --bg:#fff8f2;
+    --bg:#f6f8fb;
     --card:#ffffff;
     --muted:#6b7280;
-    --accent:#7b1b1b; /* maroon */
-    --accent-2:#d4af37; /* gold */
-    --brand-dark:#2b1a18;
+    --accent:#0f7cdb;
+    --accent-2:#2aa7ff;
+    --brand-dark:#263238;
     --success:#0b8043;
     --danger:#b00020;
     --shadow: 0 6px 18px rgba(13,24,35,0.08);
     --radius:12px;
     --container:1100px;
     --glass: rgba(255,255,255,0.6);
-    --focus: 3px solid rgba(123,27,27,0.12);
+    --focus: 3px solid rgba(15,124,219,0.18);
 }
 
 /* Reset / base */
@@ -24,7 +23,7 @@ html,body{height:100%}
 body{
     margin:0;
     font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(123,27,27,0.03), transparent 8%),
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(15,124,219,0.04), transparent 8%),
                             linear-gradient(180deg, var(--bg), #ffffff 60%);
     color:var(--brand-dark);
     -webkit-font-smoothing:antialiased;
@@ -75,7 +74,7 @@ header{
     place-items:center;
     font-weight:800;
     color:#fff;
-    box-shadow:0 8px 28px rgba(123,27,27,0.18);
+    box-shadow:0 8px 28px rgba(15,124,219,0.18);
     font-size:1rem;
 }
 .site-title h1{
