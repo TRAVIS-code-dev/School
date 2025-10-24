@@ -43,13 +43,48 @@
 
     <section class="card">
       <h3>Prefectorial Board</h3>
-      <p>The Prefectorial Board leads student discipline, peer mentoring, and community service.</p>
-      <ul class="prefect-list">
-        <li><strong>Head Prefect: Aisha Kumar</strong><p>Leads the prefects and represents the student body.</p></li>
-        <li><strong>Deputy Head Prefect: Daniel Osei</strong><p>Supports student leadership and mentorship programs.</p></li>
-        <li><strong>Academic Prefect: James Smith</strong><p>Coordinates academic clubs and study groups.</p></li>
-        <li><strong>Community Prefect: Maria López</strong><p>Organises volunteering and outreach.</p></li>
-      </ul>
+      <p>The Prefectorial Board leads student discipline, peer mentoring, and community service. Below are the prefects — add a photo and a short bio for each.</p>
+
+      <!-- Prefect cards: replace image src and text with real content -->
+      <div class="prefect-grid">
+        <div class="prefect-card">
+          <img src="images/prefects/aisha.jpg" alt="Aisha Kumar — Head Prefect" onerror="this.style.opacity=0.4;this.src='';">
+          <div class="pc-meta">
+            <h4>Aisha Kumar</h4>
+            <div class="role">Head Prefect</div>
+            <p>Leads the prefect team, represents students in meetings, and organises community projects.</p>
+          </div>
+        </div>
+
+        <div class="prefect-card">
+          <img src="images/prefects/daniel.jpg" alt="Daniel Osei — Deputy Head Prefect" onerror="this.style.opacity=0.4;this.src='';">
+          <div class="pc-meta">
+            <h4>Daniel Osei</h4>
+            <div class="role">Deputy Head Prefect</div>
+            <p>Supports the head prefect and oversees peer mentoring and student welfare initiatives.</p>
+          </div>
+        </div>
+
+        <div class="prefect-card">
+          <img src="images/prefects/james.jpg" alt="James Smith — Academic Prefect" onerror="this.style.opacity=0.4;this.src='';">
+          <div class="pc-meta">
+            <h4>James Smith</h4>
+            <div class="role">Academic Prefect</div>
+            <p>Promotes academic excellence, coordinates study groups, and helps with tutoring programmes.</p>
+          </div>
+        </div>
+
+        <div class="prefect-card">
+          <img src="images/prefects/maria.jpg" alt="Maria López — Community Prefect" onerror="this.style.opacity=0.4;this.src='';">
+          <div class="pc-meta">
+            <h4>Maria López</h4>
+            <div class="role">Community Prefect</div>
+            <p>Organises outreach and volunteering activities and champions service learning.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:10px">To add a prefect photo: place an image at <code>images/prefects/<em>name.jpg</em></code> and update the <code>src</code> value. Image sizes ~200x200px work well.</p>
     </section>
 
   </main>
